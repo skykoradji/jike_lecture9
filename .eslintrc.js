@@ -14,7 +14,7 @@ module.exports = {
     'prettier',
     'prettier/react',
     'eslint:recommended',
-    'plugin:react/recommended'
+    'plugin:react/recommended' // Uses the recommended rules from @eslint-plugin-react
   ],
   plugins: ['react'],
   rules: {

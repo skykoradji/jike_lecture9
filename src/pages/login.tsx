@@ -180,6 +180,7 @@ class LoginPage extends Component<Props, State> {
             size="small"
             onClick={this.signup}
           >
+            
             Sign up
           </Button>
         </div>
