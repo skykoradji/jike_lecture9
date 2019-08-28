@@ -1,12 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import { Button, Grid, Typography } from '@material-ui/core';
+import { AxiosResponse } from 'axios';
 import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, createStyles } from '@material-ui/core/styles';
+import { Theme } from '@material-ui/core';
 import withLayout from '../lib/withLayout';
 import restClient from '../lib/restClient';
 import errorHandler from '../lib/errorHandler';
 
-const styles = theme => ({
+const styles = (theme: Theme) => createStyles({
   loginContainer: {
     width: 500,
     margin: '0 auto',
@@ -47,8 +49,22 @@ const styles = theme => ({
   }
 });
 
-class LoginPage extends Component {
-  constructor(props) {
+interface Props {
+  name: string;
+  history: any;
+  classes: any;
+  updateUser: (payload: any) => void;
+  authenticate: (payload: any) => void;
+}
+
+interface State {
+  username: string;
+  password: string;
+  submitted: boolean;
+}
+
+class LoginPage extends Component<Props, State> {
+  constructor(props: any) {
     super(props);
     this.state = {
       username: '',
@@ -63,15 +79,15 @@ class LoginPage extends Component {
 
     this.setState({ submitted: true });
     try {
-      const response = await restClient().post('signin', { userName: username, password });
+      const response: AxiosResponse<any> = await restClient().post('signin', { userName: username, password });
 
       const { token, role, uniqueId } = response.data;
-
+      
       const { authenticate, updateUser, history } = this.props;
       localStorage.setItem('token', token);
       localStorage.setItem('uniqueId', uniqueId);
       authenticate(response.data);
-      const profile = await restClient().get(`userprofile/${uniqueId}`);
+      const profile: AxiosResponse<any> = await restClient().get(`userprofile/${uniqueId}`);
 
       updateUser({ ...profile.data, role });
 
@@ -86,6 +102,15 @@ class LoginPage extends Component {
     const { history } = this.props;
     history.push('/signup');
   };
+
+  handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ username: event.target.value });
+  }
+
+  handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ password: event.target.value });
+  }
+
   render() {
     const { classes } = this.props;
     const { submitted, username, password } = this.state;
@@ -104,7 +129,7 @@ class LoginPage extends Component {
                   fullWidth
                   margin="normal"
                   label="Username"
-                  onChange={e => this.setState({ username: e.target.value })}
+                  onChange={this.handleNameChange}
                   name="userName"
                   disabled={submitted}
                   value={username}
@@ -120,7 +145,7 @@ class LoginPage extends Component {
                   fullWidth
                   margin="normal"
                   label="Password"
-                  onChange={e => this.setState({ password: e.target.value })}
+                  onChange={this.handlePasswordChange}
                   name="password"
                   type="password"
                   validators={['required', 'minStringLength:5']}

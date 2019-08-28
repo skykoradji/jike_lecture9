@@ -1,10 +1,11 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+
+import { withStyles, createStyles } from '@material-ui/styles';
 import Courses from '../components/Courses';
 import withLayout from '../lib/withLayout';
 
-const styles = {
+const styles = createStyles({
   headline: {
     marginTop: 30,
     textAlign: 'center'
@@ -13,9 +14,9 @@ const styles = {
     marginTop: 20,
     textAlign: 'center'
   }
-};
+});
 
-function Home(props) {
+function Home(props: any) {
   const { classes, history } = props;
   return (
     <div>
