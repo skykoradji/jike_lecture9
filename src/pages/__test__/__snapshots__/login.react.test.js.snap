@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login component snapshot 1`] = `
+<LoginPage
+  classes={
+    Object {
+      "clear": "LoginPage-clear-4",
+      "headline": "LoginPage-headline-5",
+      "hr": "LoginPage-hr-8",
+      "loginButton": "LoginPage-loginButton-2",
+      "loginContainer": "LoginPage-loginContainer-1",
+      "loginForm": "LoginPage-loginForm-3",
+      "signupInLogin": "LoginPage-signupInLogin-7",
+      "signupSection": "LoginPage-signupSection-6",
+    }
+  }
+/>
+`;
+
+exports[`Login component snapshot 2`] = `
+Array [
+  <div
+    class="LoginPage-loginContainer-1"
+  >
+    <h4
+      class="MuiTypography-root-9 MuiTypography-h4-24 LoginPage-headline-5"
+    >
+      Login
+    </h4>
+    <div
+      class="MuiGrid-container-45 MuiGrid-justify-xs-center-62"
+    >
+      <div
+        class="MuiGrid-item-46 MuiGrid-grid-xs-12-85"
+      >
+        <form
+          class="LoginPage-loginForm-3"
+        >
+          <div
+            class="MuiFormControl-root-142 MuiFormControl-marginNormal-143 MuiFormControl-fullWidth-145"
+          >
+            <label
+              class="MuiFormLabel-root-157 MuiFormLabel-required-162 MuiInputLabel-required-150 MuiInputLabel-root-146 MuiInputLabel-formControl-151 MuiInputLabel-animated-154"
+              data-shrink="false"
+            >
+              Username
+              <span
+                class="MuiFormLabel-asterisk-163"
+              >
+                 *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root-177 MuiInput-root-164 MuiInput-underline-168 MuiInputBase-fullWidth-186 MuiInput-fullWidth-171 MuiInputBase-formControl-178 MuiInput-formControl-165"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input-187 MuiInput-input-172"
+                name="userName"
+                required=""
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="MuiFormControl-root-142 MuiFormControl-marginNormal-143 MuiFormControl-fullWidth-145"
+          >
+            <label
+              class="MuiFormLabel-root-157 MuiFormLabel-required-162 MuiInputLabel-required-150 MuiInputLabel-root-146 MuiInputLabel-formControl-151 MuiInputLabel-animated-154"
+              data-shrink="false"
+            >
+              Password
+              <span
+                class="MuiFormLabel-asterisk-163"
+              >
+                 *
+              </span>
+            </label>
+            <div
+              class="MuiInputBase-root-177 MuiInput-root-164 MuiInput-underline-168 MuiInputBase-fullWidth-186 MuiInput-fullWidth-171 MuiInputBase-formControl-178 MuiInput-formControl-165"
+            >
+              <input
+                aria-invalid="false"
+                class="MuiInputBase-input-187 MuiInput-input-172 MuiInputBase-inputType-190 MuiInput-inputType-175"
+                name="password"
+                required=""
+                type="password"
+                value=""
+              />
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root-220 MuiButton-root-194 MuiButton-contained-205 MuiButton-containedPrimary-206 MuiButton-raised-208 MuiButton-raisedPrimary-209 LoginPage-loginButton-2"
+            tabindex="0"
+            type="submit"
+          >
+            <span
+              class="MuiButton-label-195"
+            >
+              Login
+            </span>
+          </button>
+          <div
+            class="LoginPage-clear-4"
+          />
+          <hr
+            class="LoginPage-hr-8"
+          />
+        </form>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="LoginPage-signupSection-6"
+  >
+    Don’t have an account?
+    <button
+      class="MuiButtonBase-root-220 MuiButton-root-194 MuiButton-text-196 MuiButton-textPrimary-197 MuiButton-flat-199 MuiButton-flatPrimary-200 MuiButton-sizeSmall-217 LoginPage-signupInLogin-7"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="MuiButton-label-195"
+      >
+        Sign up
+      </span>
+    </button>
+  </div>,
+]
+`;
