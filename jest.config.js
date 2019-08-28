@@ -164,7 +164,9 @@ module.exports = {
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
 
   transform: {
-    '^.+\\.[jt]sx?$': '<rootDir>/node_modules/babel-jest'
+    '^.+\\.[j]sx?$': '<rootDir>/node_modules/babel-jest',
+    // using ts-jest for tsx compile
+    '^.+\\.[t]sx?$': '<rootDir>/node_modules/ts-jest'
   },
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
