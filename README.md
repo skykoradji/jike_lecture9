@@ -16,4 +16,17 @@ lesson:
 1. be familiar with CICD pipeline
 2. know how to set up circle-ci 
 3. know how to run unit tests in cice pipeline
+
+
+## ts VS tsx
+
+You can use tsx instead of ts with very little difference. tsx obviously allows the usage of jsx tags inside typescript
   
+```
+let a: any;
+let s = a as string // ok in tsx and ts
+let s2 = <string>a // only valid in ts
+```
+
+
+
