@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 import AppRouter from './router';
 
-// const item = new Object();
-// console.log(item);
 
 const App = () => (
   <Fragment>

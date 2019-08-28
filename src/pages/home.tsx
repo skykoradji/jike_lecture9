@@ -16,7 +16,6 @@ const styles = {
 };
 
 function Home(props) {
-  console.log(props);
   const { classes, history } = props;
   return (
     <div>
