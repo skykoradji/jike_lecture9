@@ -8,46 +8,47 @@ import withLayout from '../lib/withLayout';
 import restClient from '../lib/restClient';
 import errorHandler from '../lib/errorHandler';
 
-const styles = (theme: Theme) => createStyles({
-  loginContainer: {
-    width: 500,
-    margin: '0 auto',
-    paddingLeft: 15,
-    paddingRight: 15,
-    textAlign: 'center',
-    [theme.breakpoints.down('sm')]: {
-      width: 500
+const styles = (theme: Theme) =>
+  createStyles({
+    loginContainer: {
+      width: 500,
+      margin: '0 auto',
+      paddingLeft: 15,
+      paddingRight: 15,
+      textAlign: 'center',
+      [theme.breakpoints.down('sm')]: {
+        width: 500
+      },
+      [theme.breakpoints.down('xs')]: {
+        width: '100%'
+      }
     },
-    [theme.breakpoints.down('xs')]: {
-      width: '100%'
+    loginButton: {
+      float: 'right',
+      marginTop: 40
+    },
+    loginForm: {
+      marginTop: 40
+    },
+    clear: {
+      clear: 'both'
+    },
+    headline: {
+      marginTop: 30,
+      textAlign: 'center'
+    },
+    signupSection: {
+      textAlign: 'center',
+      marginTop: 10
+    },
+    signupInLogin: {
+      marginLeft: 10
+    },
+    hr: {
+      border: 0,
+      borderTop: '1px solid #f5f5f5'
     }
-  },
-  loginButton: {
-    float: 'right',
-    marginTop: 40
-  },
-  loginForm: {
-    marginTop: 40
-  },
-  clear: {
-    clear: 'both'
-  },
-  headline: {
-    marginTop: 30,
-    textAlign: 'center'
-  },
-  signupSection: {
-    textAlign: 'center',
-    marginTop: 10
-  },
-  signupInLogin: {
-    marginLeft: 10
-  },
-  hr: {
-    border: 0,
-    borderTop: '1px solid #f5f5f5'
-  }
-});
+  });
 
 interface Props {
   name: string;
@@ -79,10 +80,13 @@ class LoginPage extends Component<Props, State> {
 
     this.setState({ submitted: true });
     try {
-      const response: AxiosResponse<any> = await restClient().post('signin', { userName: username, password });
+      const response: AxiosResponse<any> = await restClient().post('signin', {
+        userName: username,
+        password
+      });
 
       const { token, role, uniqueId } = response.data;
-      
+
       const { authenticate, updateUser, history } = this.props;
       localStorage.setItem('token', token);
       localStorage.setItem('uniqueId', uniqueId);
@@ -105,11 +109,11 @@ class LoginPage extends Component<Props, State> {
 
   handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ username: event.target.value });
-  }
+  };
 
   handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ password: event.target.value });
-  }
+  };
 
   render() {
     const { classes } = this.props;
@@ -180,7 +184,6 @@ class LoginPage extends Component<Props, State> {
             size="small"
             onClick={this.signup}
           >
-            
             Sign up
           </Button>
         </div>

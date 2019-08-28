@@ -58,12 +58,18 @@
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
-    "testcafe": "^1.4.1"
+    "testcafe": "^1.4.1",
+    "tslint": "^5.19.0"
   },
   "lint-staged": {
     "*.js": [
       "npm run prettier",
       "eslint --fix",
+      "git add"
+    ],
+    "*.tsx": [
+      "npm run prettier",
+      "tslint --fix",
       "git add"
     ]
   },
